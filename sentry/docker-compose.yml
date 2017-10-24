@@ -1,0 +1,35 @@
+version: '2'
+services:
+  sentry:
+    image: sentry:latest
+    mem_limit: 512m
+    ports:
+     - 80:9000
+    environment:
+      SENTRY_SECRET_KEY: secretkey
+      SENTRY_POSTGRES_HOST: localhost
+      SENTRY_DB_USER: sentry
+      SENTRY_DB_PASSWORD:  secretpassword
+      SENTRY_REDIS_HOST: localhost
+
+  sentry_celery_beat:
+    image: sentry:latest
+    mem_limit: 512m
+    command: "sentry run cron"
+    environment:
+      SENTRY_SECRET_KEY: secretkey
+      SENTRY_POSTGRES_HOST: localhost
+      SENTRY_DB_USER: sentry
+      SENTRY_DB_PASSWORD:  secretpassword
+      SENTRY_REDIS_HOST: localhost
+
+  sentry_celery_worker:
+    image: sentry:latest
+    mem_limit: 512m
+    command: "sentry run worker"
+    environment:
+      SENTRY_SECRET_KEY: secretkey
+      SENTRY_POSTGRES_HOST: localhost
+      SENTRY_DB_USER: sentry
+      SENTRY_DB_PASSWORD:  secretpassword
+      SENTRY_REDIS_HOST: localhost

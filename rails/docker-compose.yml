@@ -1,0 +1,10 @@
+version: '2'
+services:
+  myrailsapp:
+    build: .
+    image: ${REGISTRY}/myrailsapp:${TAG}
+    mem_limit: 512m
+    ports:
+      - "80:3000"
+    environment:
+      - RAILS_ENV=production
