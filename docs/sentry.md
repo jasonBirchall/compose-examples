@@ -1,6 +1,6 @@
 # Sentry
 
-* [Compose file](./docker-compose.yml)
+* [Compose file](../sentry/docker-compose.yml)
 
 ## Setting application-specific environment variables
 

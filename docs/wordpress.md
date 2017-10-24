@@ -1,6 +1,6 @@
 # Wordpress
 
-* [Compose file](./docker-compose.yml)
+* [Compose file](../wordpress/docker-compose.yml)
 
 ## Setting environment variables
 
